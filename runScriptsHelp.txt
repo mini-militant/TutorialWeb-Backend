@@ -1,0 +1,75 @@
+npm run server -- to run nodemon app.js
+// TutorialIndex.create({
+//   name:'React-Environment',
+//   url_id:'environment'
+// });
+fetch('/api/home')
+  .then(res => res.json())
+  .then(response => this.setState({ data: response }));
+  // Call our fetch function below once the component mounts
+
+
+
+  {topics.map(({name,id})=>(
+    <div key={id}>
+    <MenuItem >
+      <Link to={`/react/${id}`}>{name}</Link>
+    </MenuItem>
+
+    </div>
+  ))}
+
+  // <Cards name="Redux" imgUrl={imgSrc.redux_img} />
+  // <Cards name="JS" imgUrl={imgSrc.JS_img} />
+
+
+  ReactLesson.create({
+     name:'Environment',
+     lesson_description:'environment'
+  });
+
+  <MenuList>
+
+  {props.content.map(({name,url_id})=>{
+    return(
+    <div key={url_id}>
+    <MenuItem >
+      <Link to={`/react/${url_id}`}>{name}</Link>
+    </MenuItem>
+
+    </div>
+  )})}
+  </MenuList>
+
+
+  {this.state.TopicContents.map(item=>(
+    <div key={item._id}>
+    {item.name}<br/>
+    {item.lesson_description}
+    </div>
+  ))}
+<div dangerouslySetInnerHTML={{ __html: item.name}} />
+const sub = new Subject;
+sub.img.data = fs.readFileSync('./public/React_img.png');
+sub.img.contentType = 'image/png';
+sub.save(function (err, a) {
+  if (err) throw err;
+  console.error('saved img to mongo');
+})
+
+Subject.create({
+   name:'JS',
+   img_url:'https://tutorialwebhome.s3.ap-south-1.amazonaws.com/Js_img.png'
+});
+ReduxTutorialIndex.create({
+   name:'Redux-Home',
+   url_id:'home'
+});
+
+
+
+dangerouslySetInnerHTML={{ __html: lesson.lesson_description}}
+const script=document.createElement('script');
+script.src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js";
+script.async=true;
+document.body.appendChild(script);
