@@ -8,10 +8,11 @@
     "server": "nodemon app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd ../client && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "engines": {
-    "node": "12.14.1"
+    "node": "12.14.1",
+    "npm":"6.14.4"
   },
   "author": "Shailesh",
   "license": "ISC",
