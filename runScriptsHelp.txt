@@ -8,7 +8,7 @@ fetch('/api/home')
   .then(response => this.setState({ data: response }));
   // Call our fetch function below once the component mounts
 
-
+"proxy": "http://localhost:4001/",
 
   {topics.map(({name,id})=>(
     <div key={id}>

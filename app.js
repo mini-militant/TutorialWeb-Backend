@@ -95,10 +95,11 @@ app.get('/api/redux/getLessons',function(req,res){
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){
   //set static folder
-  app.use(express.static('client/tutorial/build'))
+  app.use(express.static('client/build'))
 
   app.get('*',(req,res)=>{
-    res.sendFile(path.isAbsolute('../client/tutorial/build/index.html'))
+    console.log('path',path.isAbsolute('../client/build/index.html'))
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
   })
 }
 
