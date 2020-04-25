@@ -5,11 +5,15 @@ const cors=require('cors');
 const mongoose=require("mongoose");
 const path = require("path");
 const fs = require('fs');
+
+const JSTutorialIndex = require('./models/JS_TutorialIndexSchema')
 const ReactTutorialIndex = require('./models/React_TutorialIndexSchema')
 const ReduxTutorialIndex = require('./models/Redux_TutorialIndexSchema')
 const Subject = require('./models/SubjectSchema')
+
 const ReactLesson = require('./models/ReactLessonSchema')
 const ReduxLesson = require('./models/ReduxLessonSchema')
+const JSLesson = require('./models/JSLessonSchema')
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
@@ -22,10 +26,10 @@ mongoose.connection.once('open',()=>{
 });
 
 app.get('/',(req,res,next)=>{
-  ReduxLesson.create({
-     name:'Redux-Reducer',
-     lesson_description:'env',
-     url_id:'redux-reducer'
+  JSLesson.create({
+     name:'JS-Intro',
+     lesson_description:'js -home',
+     url_id:'JS-home'
   });
   res.send('hello');
 });
@@ -66,6 +70,18 @@ app.get('/api/redux',function(req,res){
     }
   })
 })
+/* JSIndex sidebar content*/
+app.get('/api/js',function(req,res){
+  JSIndex.find({},function(err,tutorialIndexs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      const tutorialIndex=tutorialIndexs.map(tutorialIndex=>tutorialIndex)
+      res.send( tutorialIndex);
+    }
+  })
+})
 
 /* React Lesson*/
 app.get('/api/react/getLessons',function(req,res){
@@ -92,6 +108,19 @@ app.get('/api/redux/getLessons',function(req,res){
   })
 })
 
+/* JS Lesson*/
+app.get('/api/js/getLessons',function(req,res){
+  JSLesson.find({},function(err,JSLessons){
+    if(err){
+      console.log(err);
+    }
+    else{
+      const JSLesson=JSLessons.map(JSLesson=>JSLesson)
+      res.send( JSLesson);
+    }
+  })
+})
+
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){
   //set static folder
@@ -104,7 +133,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
-const port=process.env.PORT || 4001;
+const port=process.env.PORT || 4002;
 
 app.listen(port,function(req,res){
   console.log("server started");
