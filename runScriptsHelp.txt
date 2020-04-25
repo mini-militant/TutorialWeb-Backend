@@ -73,3 +73,9 @@ const script=document.createElement('script');
 script.src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js";
 script.async=true;
 document.body.appendChild(script);
+
+JSLesson.create({
+   name:'JS-Intro',
+   lesson_description:'js-home',
+   url_id:'JS-home'
+});

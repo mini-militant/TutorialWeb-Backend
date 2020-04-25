@@ -26,11 +26,7 @@ mongoose.connection.once('open',()=>{
 });
 
 app.get('/',(req,res,next)=>{
-  JSLesson.create({
-     name:'JS-Intro',
-     lesson_description:'js -home',
-     url_id:'JS-home'
-  });
+  
   res.send('hello');
 });
 
@@ -72,7 +68,7 @@ app.get('/api/redux',function(req,res){
 })
 /* JSIndex sidebar content*/
 app.get('/api/js',function(req,res){
-  JSIndex.find({},function(err,tutorialIndexs){
+  JSTutorialIndex.find({},function(err,tutorialIndexs){
     if(err){
       console.log(err);
     }
